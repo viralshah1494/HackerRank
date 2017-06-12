@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String input = sc.next();
+        int i,cnt=0;
+
+        char a[] = input.toCharArray();
+
+
+        int cur_t=0,prev_t=0;
+
+        for(i=0;i<n;i++){
+            if(a[i] == 'U'){
+                cur_t += 1;
+            }
+            else{
+                cur_t -=1;
+            }
+
+            if(cur_t == 0 && prev_t<0){
+                cnt++;
+            }
+            prev_t = cur_t;
+        }
+        System.out.println(cnt);
+    }
+}
